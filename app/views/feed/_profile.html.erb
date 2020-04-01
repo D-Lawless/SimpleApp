@@ -1,0 +1,90 @@
+<div class="column is-one-quarter">
+  <nav class="panel">
+    <p class="panel-heading">Profile</p>
+    <div class="panel-block">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-64x64">
+            <%#= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
+            <img src="https://bulma.io/images/placeholders/64x64.png">
+
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p>
+
+              <string><%= @event.about %></string>
+              <strong><%= current_user.profile.f_name %><%= current_user.profile.l_name %></strong><br/>
+              <small>@<%= current_user.username %></small><br/>
+
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="panel">
+      <div class="columns has-text-centered">
+        <div class="column is-half ">
+          <p class="heading">Role</p>
+          <p class="title is-6">
+            <%= current_user.profile.role.capitalize %>
+          </p>
+        </div>
+        <div class="column">
+          <p class="heading">Events</p>
+          <p class="title is-6"><%= current_user.events.count %></p>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="column is-one-quarter">
+  <nav class="panel">
+    <p class="panel-heading">Profile</p>
+    <div class="panel-block">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-64x64">
+            <img src="https://bulma.io/images/placeholders/64x64.png">
+
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>Name</strong><br/>
+              <small>username</small>
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="panel-block">
+      <div class="column is-half">
+        Test
+      </div>
+      <div class="column is-half">
+        Test
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!--      <div class="level is-mobile">-->
+<!--        <div class="level-item has-centered-text">-->
+<!--          <div>-->
+<!--            <p class="heading">Role</p>-->
+<!--            <p class="title is-6">-->
+<%#= current_user.profile.role.capitalize %>
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="level-item has-centered-text">-->
+<!--          <div>-->
+<!--            <p class="heading">Events</p>-->
+<!--            <p class="title is-6"><%#= current_user.events.count %></p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->

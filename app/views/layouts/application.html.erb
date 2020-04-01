@@ -52,7 +52,7 @@
               </p>
             <% else %>
               <p class="control">
-                <%= link_to 'Profile', current_user.profile, class: "button is-info" %>
+                <%= link_to current_user.username, current_user.profile, class: "button is-info" %>
               </p>
             <% end %>
             <p>

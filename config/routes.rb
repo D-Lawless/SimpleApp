@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :connections
-  root 'home#index'
+  root 'feed#index'
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :profiles
-  resources :comments
+  resources :connections
   resources :events
+  resources :comments
 
 
 
