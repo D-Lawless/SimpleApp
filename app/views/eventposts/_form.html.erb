@@ -1,23 +1,41 @@
-  <%= form_for([@event, @eventpost], remote: true) do |form| %>
+<%#= form_for([@event, @eventpost], remote: true) do |f| %>
 
-    <% if eventpost.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(eventpost.errors.count, "error") %> prohibited this eventpost from being saved:</h2>
+  <%# if eventpost.errors.any? %>
+<!--    <div id="error_explanation">-->
+<!--      <h2><%#= pluralize(eventpost.errors.count, "error") %> prohibited this eventpost from being saved:</h2>-->
 
-      <ul>
-        <% eventpost.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<!--      <ul>-->
+        <%# eventpost.errors.full_messages.each do |message| %>
+<!--          <li><%#= message %></li>-->
+        <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
 
-  <div class="field">
-    <%= form.label :post %>
-    <%= form.text_field :post %>
-  </div>
+<!--  <div class="field">-->
+    <%#= f.label :post %>
+    <%#= f.text_field :post %>
+<!--  </div>-->
 
-  <div class="actions">
-    <%= form.submit %>
+<!--  <div class="actions">-->
+    <%#= f.submit %>
+<!--  </div>-->
+<%# end %>
+
+
+<p class="text-sm text-grey-dark my-2">Post as <%= current_user.username %></p>
+
+<%= form_for([@event, @eventpost], remote: true) do |f| %>
+  <div class="relative">
+    <%= f.text_field :title, class: "input h-32 border border-grey-light resize-none", placeholder: "Post Title" %>
+    <%= f.text_area :content, class: "input h-32 border border-grey-light resize-none", placeholder: "Post content" %>
+
+<!--    <trix-editor input="comment_reply" id="comment_reply_trix" class="h-32 p-4"></trix-editor>-->
+
+    <%#= f.submit class: "btn btn-small btn-secondary block w-full text-center mt-2 lg: mt-0 lg:text-left lg:absolute lg:pin-b lg:pin-r lg:mb-2 lg:mr-2 lg:w-auto lg:inline-flex" %>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
   </div>
 <% end %>

@@ -36,10 +36,8 @@
           <br>
           <div class="buttons has-addons is-centered">
             <%= link_to 'Add Friend', connections_path(:contact_id => @profile.id), :method => :post, class: "button is-link" %>
-            <a href="#" class="button is-link">Github</a>
             <a href="#" class="button is-link">LinkedIn</a>
-            <a href="#" class="button is-link">Twitter</a>
-            <a href="#" class="button is-link">CodeTrace</a>
+            <a href="#" class="button is-link">Facebook</a>
           </div>
         </div>
       </div>
@@ -64,35 +62,86 @@
     <h3 class="title is-2">Portfolio</h3>
     <h4 class="subtitle is-5">Have a goo at what I've been up to:</h4>
 
+
     <div class="columns">
-      <% @profile.user.events.take(2).each do |event| %>
+      <% @profile.user.events.each do |event| %>
         <div class="column">
           <div class="card">
-            <%= event.title %>
-            <p><%= event.about %></p>
-            <%= event.location %>
+            <table>
+              <thead>
+              <tr>
+                <th>Title</th>
+              </tr>
+              <tbody>
+              <td><%= event.title %></td>
+              </tbody>
+            </table>
+            <table>
+              <thead>
+              <tr>
+                <th>About</th>
+              </tr>
+              <tbody>
+              <td><%= event.about %></td>
+              </tbody>
+            </table>
+            <table>
+              <thead>
+              <tr>
+                <th>Location</th>
+              </tr>
+              <tbody>
+              <td><%= event.location %></td>
+              </tbody>
+            </table>
+            <table>
+              <thead>
+              <tr>
+                <th>#Posts</th>
+              </tr>
+              <tbody>
+              <td><%= event.eventposts.count %></td>
+              </tbody>
+            </table>
+            <td><%= link_to 'Show', event %></td>
+            <td><%= link_to 'Edit', edit_event_path(event) %></td>
+            <td><%= link_to 'Destroy', event, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+
           </div>
         </div>
       <% end %>
     </div>
+  </div>
+</section>
 
-    <!--        <div class="column">-->
-    <!--          <div class="card is-shady">-->
-    <!--            <div class="card-content">-->
-    <!--              <div class="content">-->
-    <!--                <h3><%#= event.title %></h3><br />-->
-    <!--                <p><%#= event.about %></p>-->
-    <%#= event.location %>
-    <!--                <div class="container">-->
-    <!--                  <span class="button is-link modal-button"> See More</span>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <%# end %>
-  </div>
-  </div>
+
+
+<!--  <p></p>-->
+
+
+<%#= link_to 'View Event', event_path(event.id) %>
+<!--  </div>-->
+<!--  </div>-->
+<%# end %>
+<!--  </div>-->
+
+<!--        <div class="column">-->
+<!--          <div class="card is-shady">-->
+<!--            <div class="card-content">-->
+<!--              <div class="content">-->
+<!--                <h3><%#= event.title %></h3><br />-->
+<!--                <p><%#= event.about %></p>-->
+<%#= event.location %>
+<!--                <div class="container">-->
+<!--                  <span class="button is-link modal-button"> See More</span>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<%# end %>
+</div>
+</div>
 </section>
 
 

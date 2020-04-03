@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+
 
 10.times do |n|
 
@@ -47,13 +49,9 @@ users = User.all
 i = 0
 users.each do |user|
   i += 1
-  # title = Faker::Lorem.word
-  # about = Faker::Lorem.paragraph
-  # location = Faker::Lorem.word
-
-  title = "Title #{i}"
-  about = Faker::Lorem.paragraph + " About #{i}"
-  location = "Location #{i}"
+  title = "Event Title #{i}"
+  about = Faker::Lorem.paragraph + " ~ Event About #{i}"
+  location = "Event Location #{i}"
   start_dt = Faker::Date.between(from: 20.days.ago, to: 19.days.ago)
   end_dt = Faker::Date.between(from: 2.days.ago, to: Date.today)
 
@@ -69,3 +67,26 @@ users.each do |user|
   puts "Created Event #{i}"
 
 end
+
+# users = User.all
+#
+# i = 0
+# users.each do |user|
+#   i += 1
+#
+#   title = "Post Title #{i}"
+#   content = Faker::Lorem.paragraph + " ~ Post Content #{i}"
+#   user_id = i
+#   event_id = i
+#
+#   user.events.eventposts.build(
+#       title: title,
+#       content: content,
+#       user_id: user_id,
+#       event_id: event_id,
+#   )
+#
+#   user.save!
+#   puts "Created Event Post #{i}"
+#
+# end

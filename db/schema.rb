@@ -35,9 +35,8 @@ ActiveRecord::Schema.define(version: 2020_04_02_200711) do
   create_table "eventposts", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.bigint "event_id"
-    t.integer "eventpost"
     t.integer "user_id"
+    t.bigint "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_eventposts_on_event_id"
