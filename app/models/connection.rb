@@ -1,6 +1,9 @@
 class Connection < ApplicationRecord
   
-  belongs_to :user, :foreign_key => :contact_id
+  # belongs_to :user, :foreign_key => :contact_id
+
+  belongs_to :user
+  belongs_to :contact, :class_name => "User"
   
   # after_create do |p|
   #   if !Connection.find(:first, :conditions => { :contact_id => p.user_id })
@@ -8,9 +11,9 @@ class Connection < ApplicationRecord
   #   end
   # end
   #
-  after_destroy do |p|
-    reciprocal = Connection.find(:first, :conditions => { :contact_id => p.user_id })
-    reciprocal.destroy unless reciprocal.nil?
-  end
-  
+  # after_destroy do |p|
+  #   reciprocal = Connection.find(:first, :conditions => { :contact_id => p.user_id })
+  #   reciprocal.destroy unless reciprocal.nil?
+  # end
+  #
 end

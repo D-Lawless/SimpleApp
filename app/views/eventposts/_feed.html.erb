@@ -1,0 +1,33 @@
+  <% if user_signed_in? %>
+    <article class="media box">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img src="https://bulma.io/images/placeholders/64x64.png">
+          <%#= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
+        </p>
+      </figure>
+      <div class="media-content">
+        <%= render 'eventposts/form' %>
+      </div>
+    </article>
+  <% end %>
+
+
+  <% @event.eventposts.each do |post| %>
+    <div class="box">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-64x64">
+            <%#= gravatar_image_tag(event.user.email, size: 64, alt: event.user.name) %>
+            <img src="https://bulma.io/images/placeholders/64x64.png">
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p><%= post.title %></p>
+            <p><%= post.content %></p>
+          </div>
+        </div>
+      </article>
+    </div>
+  <% end %>

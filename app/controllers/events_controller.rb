@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all.order("created_at DESC")
+    @myEvents = current_user.events
     @event = Event.new
   end
 

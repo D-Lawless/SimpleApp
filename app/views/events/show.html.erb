@@ -19,39 +19,40 @@
 
           <div class="tile is-parent">
             <article class="tile is-child box">
+              <%= @event.id %> <br>
               <strong>John Smith</strong><br>
               <small>@J_WK_Smith</small>
             </article>
           </div>
-
-
         </div>
       </section>
-      <% if user_signed_in? %>
-          <article class="media box">
-            <figure class="media-left">
-              <p class="image is-64x64">
-                <img src="https://bulma.io/images/placeholders/64x64.png">
-              </p>
-            </figure>
-            <div class="media-content">
-              <%= render 'eventposts/form' %>
-            </div>
-          </article>
-      <% end %>
-      <% @event.eventposts.each do |post| %>
-        <div class="box">
-          <article class="media">
-            <div class="media-content">
-              <div class="content">
-                <small><%= link_to '@' + post.user.username, post.user.profile %></small><br/>
-                <p><%= post.title %></p>
-                <p><%= post.content %></p>
-              </div>
-            </div>
-          </article>
-        </div>
-      <% end %>
+      <%= render "eventposts/feed" %>
+
+      <%# if user_signed_in? %>
+<!--          <article class="media box">-->
+<!--            <figure class="media-left">-->
+<!--              <p class="image is-64x64">-->
+<!--                <img src="https://bulma.io/images/placeholders/64x64.png">-->
+<!--              </p>-->
+<!--            </figure>-->
+<!--            <div class="media-content">-->
+              <%#= render 'eventposts/form' %>
+<!--            </div>-->
+<!--          </article>-->
+      <%# end %>
+      <%# @event.eventposts.each do |post| %>
+<!--        <div class="box">-->
+<!--          <article class="media">-->
+<!--            <div class="media-content">-->
+<!--              <div class="content">-->
+<!--                <small><%#= link_to '@' + post.user.username, post.user.profile %></small><br/>-->
+<!--                <p><%#= post.title %></p>-->
+<!--                <p><%#= post.content %></p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </article>-->
+<!--        </div>-->
+      <%# end %>
     </div>
   </div>
 

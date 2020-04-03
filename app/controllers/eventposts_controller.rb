@@ -6,15 +6,18 @@ class EventpostsController < ApplicationController
 
   # GET /eventposts
   # GET /eventposts.json
-  # def index
-  #   @eventposts = Eventpost.all
-  # end
+  def index
+    # @eventposts = Eventpost.all.order("created_at DESC")
+    @eventpost = Eventpost.new
+  end
   #
   # # GET /eventposts/1
   # # GET /eventposts/1.json
-  # def show
-  #
-  # end
+  def show
+    @eventpost = Eventpost.new
+    @eventposts = Event.eventposts.all.order("created_at DESC")
+
+  end
   #
   # # GET /eventposts/new
   def new
@@ -28,20 +31,22 @@ class EventpostsController < ApplicationController
   # POST /eventposts
   # POST /eventposts.json
   def create
-    @eventpost = @event.eventposts.create(params[:eventpost].permit(:reply, :event_id))
+
+    @eventpost = @event.eventposts.build(eventpost_params)
     @eventpost.user_id = current_user.id
 
     respond_to do |format|
       if @eventpost.save
-        format.html { redirect_to event_path(@event) }
-        format.js # renders create.js.erb
+        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.json { render :show, status: :created, location: @event }
       else
-        format.html { redirect_to event_path(@event), notice: "Your eventpost did not save. Please try again." }
-        format.js
+        format.html { render :new }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
   end
-  #
+
+
   # def create
   #
   #   @eventpost = @event.eventposts.create(params[:eventpost].permit(:title, :content,  :event_id))
