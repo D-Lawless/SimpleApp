@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Eventposts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Post</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @eventposts.each do |eventpost| %>
+      <tr>
+        <td><%= eventpost.post %></td>
+        <td><%= link_to 'Show', eventpost %></td>
+        <td><%= link_to 'Edit', edit_eventpost_path(eventpost) %></td>
+        <td><%= link_to 'Destroy', eventpost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Eventpost', new_eventpost_path %>

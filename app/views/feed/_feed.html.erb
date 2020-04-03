@@ -14,7 +14,7 @@
   <% end %>
 
 
-  <% @events.each do | event | %>
+  <% @events.each do |event| %>
     <div class="box">
       <article class="media">
         <div class="media-left">
@@ -25,28 +25,30 @@
         </div>
         <div class="media-content">
           <div class="content">
-            <strong><%= event.user.profile.f_name %> <%= event.user.profile.l_name %></strong><br />
+            <strong><%= event.user.profile.f_name %> <%= event.user.profile.l_name %></strong><br/>
             <small><%= link_to '@' + event.user.username, event.user.profile %></small><br/>
             <p><%= event.title %></p>
             <p><%= event.about %></p>
             <p><%= event.location %></p>
 
           </div>
-          <% if user_signed_in? && current_user.id == event.user_id %>
-            <nav class="level">
-              <div class="level-left is-mobile">
-                <%= link_to event, class: "level-item" do %>
-                  <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
-                <% end %>
+          <nav class="level">
+            <div class="level-left is-mobile">
+              <%= link_to event, class: "level-item" do %>
+                <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
+              <% end %>
+              <% if user_signed_in? && current_user.id == event.user_id %>
+
                 <%= link_to edit_event_path(event), class: "level-item" do %>
                   <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
                 <% end %>
-                <%= link_to event, method: :delete, data: { confirm: "Are you sure you want to delete this event?" } do %>
+                <%= link_to event, method: :delete, data: {confirm: "Are you sure you want to delete this event?"} do %>
                   <span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
                 <% end %>
-              </div>
-            </nav>
-          <% end %>
+              <% end %>
+
+            </div>
+          </nav>
         </div>
       </article>
     </div>

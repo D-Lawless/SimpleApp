@@ -1,30 +1,147 @@
-<p id="notice"><%= notice %></p>
+<!-- END NAV -->
+<div class="container">
+  <div class="columns">
+    <div class="column is-3 ">
+      <aside class="menu is-hidden-mobile">
+        <p class="menu-label">
+          General
+        </p>
+        <ul class="menu-list">
+          <li><a class="is-active">Posts</a></li>
+          <li><a>Members</a></li>
+          <li><a>Media</a></li>
+        </ul>
+        <!--        <p class="menu-label">-->
+        <!--          Administration-->
+        <!--        </p>-->
+        <!--        <ul class="menu-list">-->
+        <!--          <li><a>Team Settings</a></li>-->
+        <!--          <li>-->
+        <!--            <a>Manage Your Team</a>-->
+        <!--            <ul>-->
+        <!--              <li><a>Members</a></li>-->
+        <!--              <li><a>Plugins</a></li>-->
+        <!--              <li><a>Add a member</a></li>-->
+        <!--              <li><a>Remove a member</a></li>-->
+        <!--            </ul>-->
+        <!--          </li>-->
+        <!--          <li><a>Invitations</a></li>-->
+        <!--          <li><a>Cloud Storage Environment Settings</a></li>-->
+        <!--          <li><a>Authentication</a></li>-->
+        <!--          <li><a>Payments</a></li>-->
+        <!--        </ul>-->
+        <!--        <p class="menu-label">-->
+        <!--          Transactions-->
+        <!--        </p>-->
+        <!--        <ul class="menu-list">-->
+        <!--          <li><a>Payments</a></li>-->
+        <!--          <li><a>Transfers</a></li>-->
+        <!--          <li><a>Balance</a></li>-->
+        <!--          <li><a>Reports</a></li>-->
+        <!--        </ul>-->
+      </aside>
+    </div>
+    <div class="column is-9">
+      <section class="info-tiles">
+        <div class="tile is-ancestor has-text-centered">
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
-
-<p>
-  <strong>About:</strong>
-  <%= @event.about %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
-
-<p>
-  <strong>Start Date:</strong>
-  <%= @event.start_dt %>
-</p>
-
-<p>
-  <strong>End Date:</strong>
-  <%= @event.end_dt %>
-</p>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <strong>John Smith</strong><br>
+              <small>@J_WK_Smith</small>
+            </article>
+          </div>
 
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+        </div>
+      </section>
+    </div>
+
+    <% if user_signed_in? %>
+      <article class="media box">
+        <figure class="media-left">
+          <p class="image is-64x64">
+            <img src="https://bulma.io/images/placeholders/64x64.png">
+          </p>
+        </figure>
+        <div class="media-content">
+          <%= render 'eventposts/form' %>
+        </div>
+      </article>
+    <% end %>
+
+      <%# if user_signed_in? %>
+      <!--        <div class="column is-9">-->
+      <!--          <article class="media box">-->
+      <!--            <figure class="media-left">-->
+      <!--              <p class="image is-64x64">-->
+      <!--                <img src="https://bulma.io/images/placeholders/64x64.png">-->
+      <%#= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
+      <!--              </p>-->
+      <!--            </figure>-->
+      <!--            <div class="media-content">-->
+      <%#= render 'event_posts/form' %>
+      <!--            </div>-->
+      <!--          </article>-->
+      <!--        </div>-->
+      <%# end %>
+
+      <%# @event_posts.each do |post| %>
+      <!--        <div class="columns">-->
+      <!--          <div class="column is-12">-->
+      <!--            <div class="card events-card">-->
+      <!--              <header class="card-header">-->
+      <!--                <p class="card-header-title">-->
+      <%#= post.title %>
+      <!--                  Event Posts-->
+      <!--                </p>-->
+      <!--                <a href="#" class="card-header-icon" aria-label="more options">-->
+      <!--                  <span class="icon">-->
+      <!--                    <i class="fa fa-angle-down" aria-hidden="true"></i>-->
+      <!--                  </span>-->
+      <!--                </a>-->
+      <!--              </header>-->
+
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <%# end %>
+    </div>
+  </div>
+</div>
+<script async type="text/javascript" src="../js/bulma.js"></script>
+</body>
+
+</html>
+
+
+<!--<p id="notice"><%#= notice %></p>-->
+
+<!--<p>-->
+<!--  <strong>Title:</strong>-->
+<%#= @event.title %>
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>About:</strong>-->
+<%#= @event.about %>
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>Location:</strong>-->
+<%#= @event.location %>
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>Start Date:</strong>-->
+<%#= @event.start_dt %>
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>End Date:</strong>-->
+<%#= @event.end_dt %>
+<!--</p>-->
+
+
+<!--<%#= link_to 'Edit', edit_event_path(@event) %> |-->
+<%#= link_to 'Back', events_path %>

@@ -6,7 +6,7 @@ class CreateProfiles < ActiveRecord::Migration[6.0]
       t.string :role
       t.string :profile_pic
       t.text :bio
-      t.integer :user_id
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end

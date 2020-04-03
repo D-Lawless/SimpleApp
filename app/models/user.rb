@@ -10,7 +10,11 @@ class User < ApplicationRecord
   has_many :connections, :dependent => :destroy
   has_many :contacts, :through => :connections, :source => :user
 
-  has_many :events
+  has_many :events, dependent: :destroy
+  has_many :eventposts, dependent: :destroy
   has_many :comments
+  has_many :notifications, foreign_key: :recipient_id
+
+
 
 end
