@@ -10,14 +10,17 @@ class EventpostsController < ApplicationController
     # @eventposts = Eventpost.all.order("created_at DESC")
     @eventpost = Eventpost.new
   end
+
   #
   # # GET /eventposts/1
   # # GET /eventposts/1.json
   def show
+    @comment = Comment.new
     @eventpost = Eventpost.new
     @eventposts = Event.eventposts.all.order("created_at DESC")
 
   end
+
   #
   # # GET /eventposts/new
   def new
@@ -92,18 +95,18 @@ class EventpostsController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
 
-    def set_eventpost
-      @eventpost = Eventpost.find(params[:id])
-    end
+  def set_eventpost
+    @eventpost = Eventpost.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def eventpost_params
-      params.require(:eventpost).permit(:title, :content)
-    end
+  # Only allow a list of trusted parameters through.
+  def eventpost_params
+    params.require(:eventpost).permit(:title, :content)
+  end
 
 end

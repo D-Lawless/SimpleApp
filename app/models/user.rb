@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   has_many :events, dependent: :destroy
   has_many :eventposts, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :notifications, foreign_key: :recipient_id
 
 

@@ -4,7 +4,9 @@ class CreateEventposts < ActiveRecord::Migration[6.0]
 
       t.string :title
       t.text :content
+      t.integer :likes
       t.integer :user_id
+
 
       t.belongs_to :event, foreign_key: true
 

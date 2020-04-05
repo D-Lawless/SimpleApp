@@ -76,6 +76,7 @@ end
 #
 #   title = "Post Title #{i}"
 #   content = Faker::Lorem.paragraph + " ~ Post Content #{i}"
+#   likes = i
 #   user_id = i
 #   event_id = i
 #

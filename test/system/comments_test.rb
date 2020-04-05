@@ -14,7 +14,6 @@ class CommentsTest < ApplicationSystemTestCase
     visit comments_url
     click_on "New Comment"
 
-    fill_in "Content", with: @comment.content
     click_on "Create Comment"
 
     assert_text "Comment was successfully created"
@@ -25,7 +24,6 @@ class CommentsTest < ApplicationSystemTestCase
     visit comments_url
     click_on "Edit", match: :first
 
-    fill_in "Content", with: @comment.content
     click_on "Update Comment"
 
     assert_text "Comment was successfully updated"
